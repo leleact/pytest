@@ -19,7 +19,7 @@ class SessionTest(unittest.TestCase):
     def test_session(self):
         s = requests.Session()
         r = s.get('https://httpbin.org/cookies')
-        logger.debug('%s', r.text)
+        logger.debug('text: [%s], encoding: [%s], headers: [%s]', r.text, r.encoding, r.headers)
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(SessionTest)
