@@ -26,6 +26,7 @@ class HelloWorldTest(unittest.TestCase):
             'User-Agent': user_agent
         })
         response.encoding = 'utf-8'
+        # etree.parse 传入的类型是 stream?? parser 需要 HTMLParser 否则<!DOCTYPE html>不能解析
         tree = etree.parse(StringIO(response.text), etree.HTMLParser())
         s = tree.xpath(
             '//div[@class="lst lst-1 new-list"]//li/span[2]/a/text()')
